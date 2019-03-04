@@ -158,11 +158,14 @@ struct adxl362_config {
 	char *spi_name;
 	u32_t spi_max_frequency;
 	u16_t spi_slave;
+	const char *gpio_cs_port;
+	u8_t cs_gpio;
 };
 
 struct adxl362_data {
 	struct device *spi;
 	struct spi_config spi_cfg;
+	struct spi_cs_control adxl362_cs_ctrl;
 	s32_t acc_x;
 	s32_t acc_y;
 	s32_t acc_z;
